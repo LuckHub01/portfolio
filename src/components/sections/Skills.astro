@@ -1,0 +1,149 @@
+---
+import { getSkills, getTechIcon } from '../../utils/data';
+
+const skills = getSkills();
+---
+
+<section id="skills" class="py-20">
+  <div class="container mx-auto px-4 md:px-6">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+      Mes <span class="text-primary-600 dark:text-primary-400">compétences</span>
+    </h2>
+    
+    <!-- Principal Skills -->
+    <div class="mb-16">
+      <h3 class="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-200">Domaines d'expertise</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        {skills.principal.map((skill) => (
+          <div class="px-6 py-3 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm md:text-base font-medium">
+            {skill}
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Technical Skills -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Programming Languages -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-code text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Langages de programmation</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.programming.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- AI/ML -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-brain text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">IA & Machine Learning</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.ai_ml.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Web Development -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-globe text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Développement Web</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.web_dev.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Databases -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-database text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Bases de données</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.databases.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Data Visualization -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-chart-pie text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Visualisation de données</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.data_viz.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Tools -->
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-primary-500 dark:text-primary-400">
+            <i class="fas fa-tools text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Outils</h3>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {skills.technical.tools.map((tech) => (
+            <div class="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm">
+              <i class={getTechIcon(tech)}></i>
+              <span>{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Languages -->
+    <div class="mt-16">
+      <h3 class="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-200">Langues</h3>
+      <div class="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {skills.languages.map((lang) => (
+          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow text-center">
+            <h4 class="font-medium text-gray-800 dark:text-white">{lang.language}</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{lang.level}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,154 @@
+{
+  "portfolio": {
+    "personal_info": {
+      "name": "PARE INA AMINATOU CHARIFA ",
+      "title": "Ingénieure IA & Data Science",
+      "tagline": "Spécialiste en Intelligence Artificielle et Traitement des Données",
+      "contact": {
+        "email": "inaparehub@gmail.com",
+        "linkedin": "www.linkedin.com/in/ina-aminatou-charifa-pare-187156274",
+        "location": "Ouagadougou, Burkina Faso"
+      },
+      "bio": "Étudiante en Génie informatique passionnée par l'IA et le développement de solutions innovantes. Ma formation et mes projets m'ont permis d'acquérir une solide expertise en technologies IA/ML et en méthodologies de développement."
+    },
+    
+    "skills": {
+      "principal": [
+        "Intelligence Artificielle",
+        "Machine Learning",
+        "LLMs & Fine-tuning",
+        "Traitement des données", 
+        "Développement Web"
+      ],
+      "technical": {
+        "programming": ["Python", "SQL", "Java"],
+        "ai_ml": ["Langchain", "Fine-tuning", "LLMs", "MLOps", "Data Analytics"],
+        "web_dev": ["HTML5", "CSS3", "React", "Django", "Flutter", "Streamlit"],
+        "databases": ["MySQL", "PostgreSQL"],
+        "data_viz": ["Power BI", "Tableau"],
+        "tools": ["Git", "GitHub"]
+      },
+      "languages": [
+        {"language": "Français", "level": "Natif"},
+        {"language": "Anglais", "level": "Professionnel"},
+        {"language": "Dioula", "level": "Natif"}
+      ]
+    },
+    
+    "projects": [
+      {
+        "title": "Chatbot intelligent pour la Brigade Numérique",
+        "type": "Professionnel",
+        "organization": "CITADEL",
+        "period": "Septembre - Novembre 2024",
+        "description": "Conception et implémentation d'un assistant conversationnel pour lutter contre la cybercriminalité, basé sur une architecture RAG et générant automatiquement des formulaires de plaintes.",
+        "technologies": ["LLMs", "RAG", "NLP"],
+        "role": "Développeur IA & Sécurité Numérique"
+      },
+      {
+        "title": "Traduction automatique français-mooré",
+        "type": "Professionnel", 
+        "organization": "GO AI CORP",
+        "period": "Mars - Juin 2024",
+        "description": "Collecte et prétraitement des données pour un modèle de traduction automatique entre le français et le mooré.",
+        "technologies": ["NLP", "Python", "Data Processing"],
+        "role": "Développeur IA & Data Processing"
+      },
+      {
+        "title": "Site web de gestion pour restaurant",
+        "type": "Professionnel",
+        "organization": "Switch Maker",
+        "period": "Août - Septembre 2023",
+        "description": "Conception et développement d'une plateforme web complète pour la gestion d'un restaurant.",
+        "technologies": ["Web Development", "Frontend", "Backend"],
+        "role": "Développeur Web"
+      },
+      {
+        "title": "Suiveur solaire bi-axial",
+        "type": "Académique",
+        "organization": "Projet de Fin d'Année",
+        "period": "Novembre 2024",
+        "description": "Conception et implémentation d'un tracker solaire double-axe pour optimiser la captation d'énergie solaire.",
+        "technologies": ["IoT", "Électronique", "Programmation"],
+        "role": "Concepteur Principal"
+      },
+      {
+        "title": "Analyse sanguine par IA",
+        "type": "Compétition",
+        "organization": "Hackaton 226 Plus",
+        "period": "Décembre 2023",
+        "description": "Système d'analyse sanguine rapide et précise par IA, capable d'effectuer un bilan complet en quelques minutes à partir d'une simple goutte de sang.",
+        "technologies": ["IA", "Computer Vision", "Healthcare"],
+        "achievement": "2e prix"
+      },
+      {
+        "title": "Dashboards interactifs avec PostgreSQL",
+        "type": "Académique",
+        "description": "Visualisation, interprétation et conception de tableaux de bord interactifs avec PowerBI connecté à une base de données PostgreSQL.",
+        "technologies": ["PowerBI", "PostgreSQL", "Data Visualization"]
+      },
+      {
+        "title": "Classification de la qualité du son",
+        "type": "Académique",
+        "description": "Développement et déploiement d'un modèle de machine learning pour analyser et classifier la qualité audio.",
+        "technologies": ["Machine Learning", "Audio Processing", "Python"]
+      },
+      {
+        "title": "Segmentation clients bancaires",
+        "type": "Académique",
+        "description": "Développement d'un modèle de machine learning pour la segmentation et classification de clients d'une banque.",
+        "technologies": ["Machine Learning", "Clustering", "Data Analysis"]
+      }
+    ],
+    
+    "achievements": [
+      {
+        "title": "Finaliste CAN de la Data Science – DataTour 2024",
+        "date": "Décembre 2024",
+        "description": "Meilleure équipe nationale | Top 5 Africain"
+      },
+      {
+        "title": "Hackaton 226 Plus - 2e prix",
+        "date": "Décembre 2023",
+        "description": "Projet d'IA pour l'analyse sanguine rapide et précise"
+      },
+      {
+        "title": "Concours GENIE TIC 2023 - 1er prix", 
+        "date": "Mai 2024",
+        "description": "Site web de gestion des accidents"
+      }
+    ],
+    
+    "education": {
+      "highest": {
+        "degree": "Master en Génie Informatique",
+        "institution": "École Polytechnique de Ouagadougou",
+        "status": "En cours",
+        "start_date": "Octobre 2022",
+        "specialization": "Intelligence Artificielle et Sciences de Données"
+      },
+      "certifications": [
+        {
+          "title": "Developing LLM Applications with LangChain",
+          "provider": "DataCamp"
+        },
+        {
+          "title": "Large Language Models (LLMs) Concepts",
+          "provider": "DataCamp"
+        },
+        {
+          "title": "Process Data from Dirty to Clean",
+          "provider": "Google"
+        },
+        {
+          "title": "Prepare Data for Exploration",
+          "provider": "Google"
+        },
+        {
+          "title": "Traitement de données niveau 1",
+          "provider": "FORCE N"
+        }
+      ]
+    }
+  }
+}

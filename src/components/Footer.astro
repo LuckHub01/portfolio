@@ -1,0 +1,59 @@
+---
+import { getPersonalInfo } from '../utils/data';
+
+const personalInfo = getPersonalInfo();
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-100 dark:bg-gray-900 py-8 mt-16" id="contact">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Contact</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <a href={`mailto:${personalInfo.contact.email}`} class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              {personalInfo.contact.email}
+            </a>
+          </li>
+          <li class="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>{personalInfo.contact.location}</span>
+          </li>
+          <li class="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+            </svg>
+            <a href={`https://${personalInfo.contact.linkedin}`} target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Navigation rapide</h3>
+        <ul class="grid grid-cols-2 gap-2">
+          <li><a href="#hero" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Accueil</a></li>
+          <li><a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">À propos</a></li>
+          <li><a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Compétences</a></li>
+          <li><a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projets</a></li>
+          <li><a href="#achievements" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Réalisations</a></li>
+          <li><a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Formation</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <p class="text-center text-gray-600 dark:text-gray-400">
+        &copy; {currentYear} {personalInfo.name}. Tous droits réservés.
+      </p>
+    </div>
+  </div>
+</footer>

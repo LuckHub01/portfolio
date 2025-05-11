@@ -1,0 +1,73 @@
+---
+import { getPersonalInfo } from '../../utils/data';
+
+const personalInfo = getPersonalInfo();
+---
+
+<section id="hero" class="min-h-screen flex items-center pt-16">
+  <div class="container mx-auto px-4 md:px-6 py-12 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+      <div class="md:col-span-3 space-y-6 animate-fade-in">
+        <div class="space-y-2">
+          <p class="text-primary-600 dark:text-primary-400 font-medium">Bonjour, je suis</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+            {personalInfo.name.split(' ')[0]} <span class="text-primary-600 dark:text-primary-400">{personalInfo.name.split(' ').slice(1).join(' ')}</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300">{personalInfo.title}</p>
+        </div>
+        
+        <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+          {personalInfo.tagline}
+        </p>
+        
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a 
+            href="#contact" 
+            class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-sm transition-all hover:-translate-y-1"
+          >
+            Me contacter
+          </a>
+          <a 
+            href="#projects" 
+            class="px-6 py-3 bg-white dark:bg-gray-800 text-primary-600 dark:text-primary-400 border border-primary-600 dark:border-primary-400 font-medium rounded-md shadow-sm hover:shadow transition-all hover:-translate-y-1"
+          >
+            Voir mes projets
+          </a>
+        </div>
+        
+        <div class="flex items-center gap-4 pt-4">
+          <a 
+            href={`mailto:${personalInfo.contact.email}`}
+            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            aria-label="Email"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+          <a 
+            href={`https://${personalInfo.contact.linkedin}`}
+            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-2 flex justify-center animate-slide-up">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-xl">
+          <img 
+            src="src/assets/pp.jpeg" 
+            alt={personalInfo.name} 
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

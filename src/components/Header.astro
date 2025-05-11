@@ -1,0 +1,99 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { getPersonalInfo } from '../utils/data';
+
+const personalInfo = getPersonalInfo();
+const navItems = [
+  { name: 'Accueil', href: '#hero' },
+  { name: 'À propos', href: '#about' },
+  { name: 'Compétences', href: '#skills' },
+  { name: 'Projets', href: '#projects' },
+  { name: 'Réalisations', href: '#achievements' },
+  { name: 'Formation', href: '#education' },
+  { name: 'Contact', href: '#contact' },
+];
+---
+
+<header class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-10 transition-all duration-300 shadow-sm">
+  <div class="container mx-auto px-4 md:px-6 py-4">
+    <div class="flex justify-between items-center">
+      <a href="#hero" class="text-lg md:text-xl font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2">
+        <span class="hidden sm:inline">{personalInfo.name.split(' ')[0]}</span>
+        <span class="sm:hidden">Ina Paré</span>
+      </a>
+      
+      <nav class="hidden md:block">
+        <ul class="flex gap-6">
+          {navItems.map((item) => (
+            <li>
+              <a 
+                href={item.href} 
+                class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <ThemeToggle />
+        
+        <button id="mobile-menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 shadow-md">
+    <nav class="container mx-auto px-4 py-4">
+      <ul class="flex flex-col gap-4">
+        {navItems.map((item) => (
+          <li>
+            <a 
+              href={item.href} 
+              class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 block py-2 transition-colors"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Handle mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+  
+  // Add shadow to header on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('shadow');
+    } else {
+      header?.classList.remove('shadow');
+    }
+  });
+</script>
