@@ -52,7 +52,7 @@
       {"title":"Analyse sanguine par IA","type":"Compétition","organization":"Hackaton 226 Plus","period":"Décembre 2023","description":"Système d'analyse sanguine rapide et précise par IA, capable d'effectuer un bilan complet en quelques minutes à partir d'une simple goutte de sang.","technologies":["IA","Computer Vision","Healthcare"],"achievement":"2e prix","github":null,"demo":null},
       {"title":"Dashboards interactifs avec PostgreSQL","type":"Académique","description":"Visualisation, interprétation et conception de tableaux de bord interactifs avec PowerBI connecté à une base de données PostgreSQL.","technologies":["PowerBI","PostgreSQL","Data Visualization"],"github":null,"demo":null},
       {"title":"Classification de la qualité du son","type":"Académique","description":"Développement et déploiement d'un modèle de machine learning pour analyser et classifier la qualité audio.","technologies":["Machine Learning","Audio Processing","Python"],"github":null,"demo":null},
-      {"title":"Segmentation clients bancaires","type":"Académique","description":"Développement d'un modèle de machine learning pour la segmentation et classification de clients d'une banque.","technologies":["Machine Learning","Clustering","Data Analysis"],"github":null,"demo":null},
+      {"title":"Segmentation clients bancaires","type":"Académique","description":"Développement d'un modèle de machine learning pour la segmentation et classification de clients d'une banque.","technologies":["Machine Learning","Clustering","Data Analysis"],"github":null,"demo":null}
       ],
     "achievements": [
       {"title":"Finaliste CAN de la Data Science – DataTour 2024","date":"Décembre 2024","description":"Meilleure équipe nationale | Top 5 Africain"},
