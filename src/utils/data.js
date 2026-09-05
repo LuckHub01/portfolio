@@ -64,6 +64,7 @@ export function getTechIcon(techName) {
     'CSS3': 'fab fa-css3-alt',
     'React': 'fab fa-react',
     'Django': 'fab fa-python', // Using Python icon as proxy
+    'Laravel': 'fab fa-laravel',
     'Git': 'fab fa-git-alt',
     'GitHub': 'fab fa-github',
     'SQL': 'fas fa-database',
@@ -93,6 +94,15 @@ export function getTechIcon(techName) {
     'Intelligence Artificielle': 'fas fa-brain',
     'Traitement des données': 'fas fa-database',
     'Développement Web': 'fas fa-globe',
+    'RAG': 'fas fa-robot',
+    'Docker': 'fab fa-docker',
+    'Jenkins': 'fab fa-jenkins',
+    'CI/CD': 'fas fa-infinity',
+    'Optimisation': 'fas fa-bolt',
+    'API': 'fas fa-plug',
+    'PySpark': 'fas fa-fire',
+    'Machine Translation': 'fas fa-language',
+    'dbt': 'fas fa-database',
   };
   
   return techIcons[techName] || 'fas fa-code'; // Default icon if not found

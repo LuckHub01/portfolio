@@ -1,42 +1,54 @@
 ---
-import { getPersonalInfo } from '../../utils/data';
+import { getPersonalInfo, getProjects, getAchievements } from '../../utils/data';
 
 const personalInfo = getPersonalInfo();
+
+// Real numbers computed from the data — not decorative filler.
+const totalProjects = getProjects().length;
+const experienceCount = getProjects('Professionnel').length;
+const achievements = getAchievements();
 ---
 
-<section id="hero" class="min-h-screen flex items-center pt-16">
+<section id="hero" class="min-h-screen flex items-center pt-16 overflow-hidden">
   <div class="container mx-auto px-4 md:px-6 py-12 md:py-20">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-      <div class="md:col-span-3 space-y-6 animate-fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
+      <div class="md:col-span-3 space-y-6">
         <div class="space-y-2">
-          <p class="text-primary-600 dark:text-primary-400 font-medium">Bonjour, je suis</p>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+          <p class="hero-reveal text-primary-600 dark:text-primary-400 font-medium" style="animation-delay: 0ms">
+            Bonjour, je suis
+          </p>
+          <h1 class="hero-reveal text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white" style="animation-delay: 80ms">
             {personalInfo.name.split(' ')[0]} <span class="text-primary-600 dark:text-primary-400">{personalInfo.name.split(' ').slice(1).join(' ')}</span>
           </h1>
-          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300">{personalInfo.title}</p>
+          <div class="hero-reveal" style="animation-delay: 200ms">
+            <span class="relative inline-block text-xl md:text-2xl text-gray-600 dark:text-gray-300 pb-2">
+              {personalInfo.title}
+              <span class="hero-underline absolute left-0 bottom-0 h-[3px] w-full bg-accent-500 origin-left"></span>
+            </span>
+          </div>
         </div>
-        
-        <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+
+        <p class="hero-reveal text-lg text-gray-700 dark:text-gray-300 max-w-2xl" style="animation-delay: 280ms">
           {personalInfo.tagline}
         </p>
-        
-        <div class="flex flex-wrap gap-4 pt-4">
-          <a 
-            href="#contact" 
-            class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-sm transition-all hover:-translate-y-1"
+
+        <div class="hero-reveal flex flex-wrap gap-4 pt-2" style="animation-delay: 360ms">
+          <a
+            href="#contact"
+            class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-sm transition-colors"
           >
             Me contacter
           </a>
-          <a 
-            href="#projects" 
-            class="px-6 py-3 bg-white dark:bg-gray-800 text-primary-600 dark:text-primary-400 border border-primary-600 dark:border-primary-400 font-medium rounded-md shadow-sm hover:shadow transition-all hover:-translate-y-1"
+          <a
+            href="#projects"
+            class="px-6 py-3 bg-transparent text-primary-700 dark:text-primary-400 border border-primary-600 dark:border-primary-400 font-medium rounded-md hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors"
           >
             Voir mes projets
           </a>
         </div>
-        
-        <div class="flex items-center gap-4 pt-4">
-          <a 
+
+        <div class="hero-reveal flex items-center gap-4 pt-2" style="animation-delay: 440ms">
+          <a
             href={`mailto:${personalInfo.contact.email}`}
             class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             aria-label="Email"
@@ -45,7 +57,7 @@ const personalInfo = getPersonalInfo();
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </a>
-          <a 
+          <a
             href={`https://${personalInfo.contact.linkedin}`}
             class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             target="_blank"
@@ -56,18 +68,85 @@ const personalInfo = getPersonalInfo();
               <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
             </svg>
           </a>
+          {personalInfo.contact.github && (
+            <a
+              href={`https://${personalInfo.contact.github}`}
+              class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github text-2xl leading-none"></i>
+            </a>
+          )}
         </div>
+
+        <!-- Real numbers pulled from the data, not decorative placeholders -->
+        <dl class="hero-reveal flex flex-wrap gap-x-10 gap-y-4 pt-6 border-t border-gray-200 dark:border-gray-800 max-w-xl" style="animation-delay: 520ms">
+          <div>
+            <dt class="text-sm text-gray-500 dark:text-gray-400">Projets</dt>
+            <dd class="text-2xl font-semibold text-gray-900 dark:text-white">{totalProjects}+</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-gray-500 dark:text-gray-400">Expériences pro.</dt>
+            <dd class="text-2xl font-semibold text-gray-900 dark:text-white">{experienceCount}</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-gray-500 dark:text-gray-400">Distinction</dt>
+            <dd class="text-2xl font-semibold text-accent-600 dark:text-accent-400">Top 5 Afrique</dd>
+          </div>
+        </dl>
       </div>
-      
-      <div class="md:col-span-2 flex justify-center animate-slide-up">
-        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-xl">
-          <img 
-            src="src/assets/pp.jpeg" 
-            alt={personalInfo.name} 
-            class="w-full h-full object-cover"
-          />
+
+      <div class="md:col-span-2 flex justify-center">
+        <div class="hero-photo relative" style="animation-delay: 160ms">
+          <div class="absolute -inset-3 rounded-full border-2 border-accent-400/60 dark:border-accent-400/40"></div>
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-xl">
+            <img
+              src="src/assets/pp12.jpeg"
+              alt={personalInfo.name}
+              class="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Self-contained hero entrance animation — does not depend on tailwind.config.mjs,
+     so it keeps working even if that file isn't updated. */
+  .hero-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroSlideUp 0.6s ease-out forwards;
+  }
+  .hero-photo {
+    opacity: 0;
+    transform: scale(0.92);
+    animation: heroPopIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-underline {
+    transform: scaleX(0);
+    animation: heroDrawLine 0.9s ease-out 0.5s forwards;
+  }
+
+  @keyframes heroSlideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroPopIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes heroDrawLine {
+    to { transform: scaleX(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-reveal, .hero-photo, .hero-underline {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

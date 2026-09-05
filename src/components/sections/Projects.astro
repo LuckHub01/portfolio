@@ -10,58 +10,63 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
     <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">
       Mes <span class="text-primary-600 dark:text-primary-400">projets</span>
     </h2>
-    
+
     <p class="text-center text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
-      Découvrez une sélection de mes projets les plus significatifs dans les domaines de l'IA, du développement web et du traitement de données.
+      Une sélection de projets en IA, développement web et traitement de données — professionnels, académiques et personnels.
     </p>
-    
+
     <!-- Project Filters -->
     <div class="flex justify-center flex-wrap gap-3 mb-10">
-      <button 
-        class="project-filter px-4 py-2 rounded-md bg-white dark:bg-gray-900 shadow-sm hover:shadow transition-all active"
+      <button
+        class="project-filter px-4 py-2 rounded-md bg-white dark:bg-gray-900 shadow-sm hover:shadow transition-shadow active"
         data-filter="all"
       >
         Tous
       </button>
-      
+
       {projectTypes.map((type) => (
-        <button 
-          class="project-filter px-4 py-2 rounded-md bg-white dark:bg-gray-900 shadow-sm hover:shadow transition-all"
+        <button
+          class="project-filter px-4 py-2 rounded-md bg-white dark:bg-gray-900 shadow-sm hover:shadow transition-shadow"
           data-filter={type}
         >
           {type}
         </button>
       ))}
     </div>
-    
+
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
       {projects.map((project) => (
-        <div 
-          class="project-card bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all" 
+        <div
+          class={`project-card rounded-lg overflow-hidden transition-shadow ${
+            project.featured
+              ? 'bg-accent-50/60 dark:bg-accent-900/10 border-l-4 border-accent-500 shadow-md hover:shadow-lg'
+              : 'bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-md'
+          }`}
           data-type={project.type}
         >
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+          <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-start mb-3 gap-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                {project.featured && <i class="fas fa-star text-accent-500 text-sm" aria-hidden="true" title="Projet phare"></i>}
                 {project.title}
               </h3>
               {project.type && (
-                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded">
+                <span class="shrink-0 text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded">
                   {project.type}
                 </span>
               )}
             </div>
-            
+
             {project.organization && (
               <div class="mb-2 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
-                <span>{project.organization}</span>
+                <span>{project.organization.trim()}</span>
               </div>
             )}
-            
+
             {project.period && (
               <div class="mb-3 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,11 +75,11 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
                 <span>{project.period}</span>
               </div>
             )}
-            
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
+
+            <p class="text-gray-700 dark:text-gray-300 mb-4 flex-grow">
               {project.description}
             </p>
-            
+
             {project.role && (
               <div class="mb-4 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,7 +88,7 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
                 <span>{project.role}</span>
               </div>
             )}
-            
+
             {project.achievement && (
               <div class="mb-4 flex items-center gap-2 text-accent-600 dark:text-accent-400 font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,8 +97,8 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
                 <span>{project.achievement}</span>
               </div>
             )}
-            
-            <div class="flex flex-wrap gap-2 mt-4">
+
+            <div class="flex flex-wrap gap-2 mt-2 mb-4">
               {project.technologies && project.technologies.map((tech) => (
                 <span class="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded text-xs">
                   <i class={`${getTechIcon(tech)} text-primary-500`}></i>
@@ -101,6 +106,31 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
                 </span>
               ))}
             </div>
+
+            {(project.github || project.demo) && (
+              <div class="flex gap-3 mt-auto pt-3 border-t border-gray-100 dark:border-gray-800">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    <i class="fas fa-arrow-up-right-from-square"></i> Démo
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -112,17 +142,14 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
   // Project filtering functionality
   const filterButtons = document.querySelectorAll('.project-filter');
   const projectCards = document.querySelectorAll('.project-card');
-  
+
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active class from all buttons
       filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary-500', 'text-white', 'dark:bg-primary-600'));
-      
-      // Add active class to clicked button
       button.classList.add('active', 'bg-primary-500', 'text-white', 'dark:bg-primary-600');
-      
+
       const filter = button.getAttribute('data-filter');
-      
+
       projectCards.forEach(card => {
         if (filter === 'all' || card.getAttribute('data-type') === filter) {
           card.style.display = 'block';
@@ -132,7 +159,6 @@ const projectTypes = [...new Set(projects.map(project => project.type))];
       });
     });
   });
-  
-  // Set "All" filter as active by default
+
   document.querySelector('.project-filter[data-filter="all"]')?.classList.add('bg-primary-500', 'text-white', 'dark:bg-primary-600');
 </script>
