@@ -7,6 +7,9 @@ const personalInfo = getPersonalInfo();
 const totalProjects = getProjects().length;
 const experienceCount = getProjects('Professionnel').length;
 const achievements = getAchievements();
+import pp12 from '../../assets/pp12.jpeg';
+
+
 ---
 
 <section id="hero" class="min-h-screen flex items-center pt-16 overflow-hidden">
@@ -103,7 +106,7 @@ const achievements = getAchievements();
           <div class="absolute -inset-3 rounded-full border-2 border-accent-400/60 dark:border-accent-400/40"></div>
           <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-xl">
             <img
-              src="src/assets/pp12.jpeg"
+              src={pp12.src}
               alt={personalInfo.name}
               class="w-full h-full object-cover"
             />
